@@ -54,7 +54,7 @@ grunt.initConfig({
 grunt.initConfig({
   legacssy: {
     files: {
-      'css/style-legacy.css': 'css/style.css,
+      'css/style-legacy.css': 'css/style.css',
     },
   },
 })
