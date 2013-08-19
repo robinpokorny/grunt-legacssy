@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         // Read file source.
         return grunt.file.read(filepath);
       }).join(grunt.util.normalizelf(grunt.util.linefeed));
-      
+
       // Parse the style
       var style = css.parse(src);
 
@@ -51,16 +51,27 @@ module.exports = function(grunt) {
     });
   });
 
+  var isUnsupported = function (media) {
+    // Tokens `only` and `not` are new in CSS3
+    // Every expression has to start with `(`
+    var re = /(only)|(not)|(\()/;
+    if (media.match(re)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   var stripMediaQueries = function (rules) {
-      var tmp = [];
-      for (var i = 0; i < rules.length; i++) {
-            if (rules[i].type === "media") {
-                tmp = tmp.concat(stripMediaQueries(rules[i].rules));
-            } else {
-                tmp.push(rules[i]);
-            }
-        }
-        return tmp;
+    var tmp = [];
+    for (var i = 0; i < rules.length; i++) {
+      if (rules[i].type === "media" && isUnsupported(rules[i].media)) {
+        tmp = tmp.concat(stripMediaQueries(rules[i].rules));
+      } else {
+          tmp.push(rules[i]);
+      }
+    }
+    return tmp;
   };
 
 };

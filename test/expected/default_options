@@ -6,3 +6,9 @@ body {
 h1 {
   font-weight: bold;
 }
+
+@media print {
+  p {
+    text-indent: 0;
+  }
+}
