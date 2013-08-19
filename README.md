@@ -73,4 +73,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 * 2013-08-19	   v0.2.0   Media matching added
- * 2013-08-13   v0.1.0   Initial task with basic functionality.
+* 2013-08-13   v0.1.0   Initial task with basic functionality.
