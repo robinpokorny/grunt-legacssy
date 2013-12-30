@@ -1,4 +1,4 @@
-# grunt-legacssy
+# grunt-legacssy [![Dependency Status](https://gemnasium.com/robinpokorny/grunt-legacssy.png)](https://gemnasium.com/robinpokorny/grunt-legacssy)
 
 > Fix your CSS for legacy browsers
 
@@ -16,7 +16,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 ```js
 grunt.loadNpmTasks('grunt-legacssy');
 ```
- 
+
 ## The "legacssy" task
 
 ### Overview
@@ -37,6 +37,10 @@ Type: `Boolean`
 Default: True
 
 Unsupported media queries are flattened only if their min-width and max-width match with *legacyWidth*. Comparision is number only, that means it is compatible with both px's and em's as long as there is only one of them used.
+
+#### overridesOnly
+Type: `Boolean`
+Default: False
 
 ### Usage Examples
 
@@ -72,9 +76,9 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-* 2013-08-19	   v0.2.0   Media matching added
+* 2013-12-24   v0.3.0   Output only overrides
+* 2013-08-19	 v0.2.0   Media matching added
 * 2013-08-13   v0.1.0   Initial task with basic functionality.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/robinpokorny/grunt-legacssy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

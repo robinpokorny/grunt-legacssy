@@ -34,7 +34,15 @@ module.exports = function(grunt) {
         options: {
         },
         files: {
-         'tmp/default_options': 'test/fixtures/test.css' 
+         'tmp/default_options': 'test/fixtures/test.css'
+        },
+      },
+      overrides_only: {
+        options: {
+          overridesOnly: true
+        },
+        files: {
+         'tmp/overrides_only': 'test/fixtures/test.css'
         },
       },
     },

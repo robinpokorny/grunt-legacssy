@@ -17,7 +17,8 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     options = this.options({
       legacyWidth: 1024,
-      matchingOnly: true
+      matchingOnly: true,
+      overridesOnly: false
     });
 
     if (this.files.length < 1) {
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
       var style = css.parse(src);
 
       // Do the magic!
-      style.stylesheet.rules = stripMediaQueries(style.stylesheet.rules);
+      style.stylesheet.rules = stripMediaQueries(style.stylesheet.rules, options.overridesOnly);
 
       // Write the destination file.
       grunt.file.write(f.dest, css.stringify(style));
@@ -69,7 +70,7 @@ module.exports = function(grunt) {
     for (var i = 0; i < queries.length; i++) {
       // RegExps are based on ones from scottjehl/Respond
       var minw = queries[i].match( /\(\s*min\-width\s*:\s*(\s*[0-9\.]+)[^\d\)]*\s*\)/ ) && parseFloat( RegExp.$1 ), 
-			maxw = queries[i].match( /\(\s*max\-width\s*:\s*(\s*[0-9\.]+)[^\d\)]*\s*\)/ ) && parseFloat( RegExp.$1 );
+          maxw = queries[i].match( /\(\s*max\-width\s*:\s*(\s*[0-9\.]+)[^\d\)]*\s*\)/ ) && parseFloat( RegExp.$1 );
 
       // If this does not match, move to the next
       if ((minw && minw > options.legacyWidth) ||
@@ -84,15 +85,17 @@ module.exports = function(grunt) {
     return false;
   };
 
-  var stripMediaQueries = function (rules) {
+  var stripMediaQueries = function (rules, innerOnly) {
     var tmp = [];
     for (var i = 0; i < rules.length; i++) {
       if (rules[i].type === "media" && isUnsupported(rules[i].media)) {
         if (!options.matchingOnly || isMatching(rules[i].media)) {
-          tmp = tmp.concat(stripMediaQueries(rules[i].rules));
+          tmp = tmp.concat(stripMediaQueries(rules[i].rules, false));
         }
       } else {
-          tmp.push(rules[i]);
+          if (!innerOnly) {
+              tmp.push(rules[i]);
+          }
       }
     }
     return tmp;

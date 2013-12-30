@@ -1,7 +1,7 @@
 {
   "name": "grunt-legacssy",
   "description": "Fix your CSS for legacy browsers",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/robinpokorny/grunt-legacssy",
   "author": {
     "name": "Robin Pokorný",
@@ -29,11 +29,11 @@
     "test": "grunt test"
   },
   "dependencies" : {
-      "css": "~1.4.1"
+      "css": "~1.6.0"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-jshint": "~0.7.0",
+    "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt": "~0.4.1"
   },

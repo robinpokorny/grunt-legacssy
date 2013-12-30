@@ -36,5 +36,14 @@ exports.legacssy = {
 
     test.done();
   },
+  overrides_only: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/overrides_only');
+    var expected = grunt.file.read('test/expected/overrides_only');
+    test.equal(actual, expected, 'should output only overrides.');
+
+    test.done();
+  },
 
 };
