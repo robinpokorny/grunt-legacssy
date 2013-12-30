@@ -42,6 +42,8 @@ Unsupported media queries are flattened only if their min-width and max-width ma
 Type: `Boolean`
 Default: False
 
+Please note this might change the desired outcome, see the corresponding [issue comment](https://github.com/robinpokorny/grunt-legacssy/issues/4#issuecomment-31345973).
+
 ### Usage Examples
 
 #### Default Options
