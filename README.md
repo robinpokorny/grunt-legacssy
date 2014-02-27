@@ -51,8 +51,10 @@ Please note this might change the desired outcome, see the corresponding [issue 
 ```js
 grunt.initConfig({
   legacssy: {
-    files: {
-      'css/style-legacy.css': 'css/style.css',
+    dist {
+      files: {
+        'css/style-legacy.css': 'css/style.css',
+      },
     },
   },
 })
@@ -63,12 +65,14 @@ grunt.initConfig({
 ```js
 grunt.initConfig({
   legacssy: {
-    options: {
-      // Include only styles for a screen 800px wide
-      legacyWidth: 800
-    },
-    files: {
-      'css/style-legacy.css': 'css/style.css',
+    dist {
+      options: {
+        // Include only styles for a screen 800px wide
+        legacyWidth: 800
+      },
+      files: {
+        'css/style-legacy.css': 'css/style.css',
+      },
     },
   },
 })
