@@ -11,6 +11,8 @@
 module.exports = function(grunt) {
 
   var css = require('css'),
+      chalk = require('chalk'),
+      maxmin = require('maxmin'),
       options;
 
   grunt.registerMultiTask('legacssy', 'Your task description goes here.', function() {
@@ -45,11 +47,13 @@ module.exports = function(grunt) {
       // Do the magic!
       style.stylesheet.rules = stripMediaQueries(style.stylesheet.rules, options.overridesOnly);
 
+      var output = css.stringify(style);
       // Write the destination file.
-      grunt.file.write(f.dest, css.stringify(style));
+      grunt.file.write(f.dest, output);
 
       // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+      grunt.log.writeln('File "' + chalk.cyan(f.dest) + '" created: ' +
+                        maxmin(src, output, false));
     });
   });
 

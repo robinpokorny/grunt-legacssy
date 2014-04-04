@@ -82,9 +82,10 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-* 2013-12-24   v0.3.0   Output only overrides
-* 2013-08-19	 v0.2.0   Media matching added
-* 2013-08-13   v0.1.0   Initial task with basic functionality.
+* v0.4.0   Add colours and report to the output
+* v0.3.0   Output only overrides
+* v0.2.0   Media matching added
+* v0.1.0   Initial task with basic functionality.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/robinpokorny/grunt-legacssy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
