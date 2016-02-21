@@ -28,10 +28,10 @@
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies" : {
-      "css": "~1.6.0",
-      "chalk": "^0.4.0",
-      "maxmin": "^0.1.0"
+  "dependencies": {
+    "css": "~1.6.0",
+    "chalk": "^0.4.0",
+    "maxmin": "^0.1.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.8.0",
@@ -40,7 +40,7 @@
     "grunt": "~0.4.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4.0"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "gruntplugin",
