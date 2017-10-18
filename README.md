@@ -36,7 +36,7 @@ Default: 1024
 Type: `Boolean`
 Default: True
 
-Unsupported media queries are flattened only if their min-width and max-width match with *legacyWidth*. Comparision is number only, that means it is compatible with both px's and em's as long as there is only one of them used.
+Unsupported media queries are flattened only if their min-width and max-width match with *legacyWidth*. Comparison is number only, that means it is compatible with both px's and em's as long as there is only one of them used.
 
 #### overridesOnly
 Type: `Boolean`
