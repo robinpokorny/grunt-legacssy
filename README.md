@@ -1,4 +1,4 @@
-# grunt-legacssy [![Dependency Status](https://gemnasium.com/robinpokorny/grunt-legacssy.png)](https://gemnasium.com/robinpokorny/grunt-legacssy)
+# grunt-legacssy <sup>DEPRECATED</sup>
 
 > Fix your CSS for legacy browsers
 
