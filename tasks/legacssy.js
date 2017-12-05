@@ -8,6 +8,8 @@
 
 'use strict';
 
+var legacssy = require('legacssy');
+
 module.exports = function(grunt) {
 
   var css = require('css'),
@@ -41,13 +43,7 @@ module.exports = function(grunt) {
         return grunt.file.read(filepath);
       }).join(grunt.util.normalizelf(grunt.util.linefeed));
 
-      // Parse the style
-      var style = css.parse(src);
-
-      // Do the magic!
-      style.stylesheet.rules = stripMediaQueries(style.stylesheet.rules, options.overridesOnly);
-
-      var output = css.stringify(style);
+      var output = legacssy(src, options);
       // Write the destination file.
       grunt.file.write(f.dest, output);
 
@@ -73,7 +69,7 @@ module.exports = function(grunt) {
 
     for (var i = 0; i < queries.length; i++) {
       // RegExps are based on ones from scottjehl/Respond
-      var minw = queries[i].match( /\(\s*min\-width\s*:\s*(\s*[0-9\.]+)[^\d\)]*\s*\)/ ) && parseFloat( RegExp.$1 ), 
+      var minw = queries[i].match( /\(\s*min\-width\s*:\s*(\s*[0-9\.]+)[^\d\)]*\s*\)/ ) && parseFloat( RegExp.$1 ),
           maxw = queries[i].match( /\(\s*max\-width\s*:\s*(\s*[0-9\.]+)[^\d\)]*\s*\)/ ) && parseFloat( RegExp.$1 );
 
       // If this does not match, move to the next
@@ -85,7 +81,7 @@ module.exports = function(grunt) {
       // Match found
       return true;
     }
- 
+
     return false;
   };
 
